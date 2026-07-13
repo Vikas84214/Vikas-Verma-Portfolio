@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+  /* You can add custom v4 variables here if needed */
+}
+
+@utility hero-3d-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,98 @@
+/* 3D Isometric Animation Framework */
+.hero-3d-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .layer-base {
+    width: 170px;
+    position: relative;
+    z-index: 10;
+  }
+
+  .layer-framework,
+  .layer-floating {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+
+  .layer-framework {
+    z-index: 20;
+    top: 34px;
+    height: 28px;
+    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg) scale(1.4);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .layer-floating {
+    z-index: 5;
+    top: 107px;
+    height: 26px;
+    width: auto;
+    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg) scale(0.8);
+    animation: floating-isometric 4s ease-in-out infinite alternate;
+  }
+}
+
+/* Custom Interactive Micro-badges fallback properties */
+.counter-badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: monospace;
+  font-size: 0.875rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 2px solid transparent;
+  transition: all 0.3s;
+  margin-bottom: 1.5rem;
+  color: #aa3bff;
+  background-color: rgba(170, 59, 255, 0.1);
+}
+
+:global(.dark) .counter-badge {
+  color: #c084fc;
+  background-color: rgba(192, 132, 252, 0.15);
+}
+
+.counter-badge:hover {
+  border-color: rgba(170, 59, 255, 0.5);
+}
+
+/* Decorative Framing Split Lines */
+.decorative-ticks {
+  position: relative;
+  width: 100%;
+}
+
+.decorative-ticks::before,
+.decorative-ticks::after {
+  content: '';
+  position: absolute;
+  top: -4.5px;
+  border: 5px solid transparent;
+}
+
+.decorative-ticks::before {
+  left: 0;
+  border-left-color: currentColor;
+  opacity: 0.2;
+}
+
+.decorative-ticks::after {
+  right: 0;
+  border-right-color: currentColor;
+  opacity: 0.2;
+}
+
+/* Keyframe Animations */
+@keyframes floating-isometric {
+  0% {
+    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg) scale(0.8) translateY(0px);
+  }
+  100% {
+    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg) scale(0.82) translateY(-10px);
+  }
+}
